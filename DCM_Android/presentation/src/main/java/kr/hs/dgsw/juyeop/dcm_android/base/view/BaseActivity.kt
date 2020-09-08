@@ -1,4 +1,4 @@
-package kr.hs.dgsw.juyeop.dcm_android.base
+package kr.hs.dgsw.juyeop.dcm_android.base.view
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import kr.hs.dgsw.juyeop.dcm_android.BR
 import kr.hs.dgsw.juyeop.dcm_android.R
+import kr.hs.dgsw.juyeop.dcm_android.base.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 import java.util.*

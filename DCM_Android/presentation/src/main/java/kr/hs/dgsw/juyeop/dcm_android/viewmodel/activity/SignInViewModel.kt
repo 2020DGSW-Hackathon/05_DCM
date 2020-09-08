@@ -1,9 +1,9 @@
-package kr.hs.dgsw.juyeop.dcm_android.viewmodel
+package kr.hs.dgsw.juyeop.dcm_android.viewmodel.activity
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
-import kr.hs.dgsw.juyeop.dcm_android.base.BaseViewModel
+import kr.hs.dgsw.juyeop.dcm_android.base.viewmodel.BaseViewModel
 import kr.hs.dgsw.juyeop.dcm_android.widget.SingleLiveEvent
 import kr.hs.dgsw.juyeop.dcm_android.widget.`object`.SharedPreferencesManager
 

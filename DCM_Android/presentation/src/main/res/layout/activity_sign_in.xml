@@ -8,14 +8,14 @@
         <import type="android.view.View" />
         <variable
             name="viewModel"
-            type="kr.hs.dgsw.juyeop.dcm_android.viewmodel.SignInViewModel" />
+            type="kr.hs.dgsw.juyeop.dcm_android.viewmodel.activity.SignInViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/img_signin"
-        tools:context=".view.SignInActivity">
+        tools:context=".view.activity.SignInActivity">
 
         <FrameLayout
             android:id="@+id/frameLayout2"

@@ -1,4 +1,4 @@
-package kr.hs.dgsw.juyeop.dcm_android.base
+package kr.hs.dgsw.juyeop.dcm_android.base.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
