@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2E4C29BD585A576183077F4 /* Pods_DCM_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504C6A52C99522FFC2EED655 /* Pods_DCM_iOS.framework */; };
+		F2C6E9A32507551700D959D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2C6E9A22507551700D959D5 /* GoogleService-Info.plist */; };
+		F2C6E9A725075ABC00D959D5 /* DCMStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C6E9A625075ABC00D959D5 /* DCMStep.swift */; };
 		F2DC5B2E2507465A00DC4C96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC5B2D2507465A00DC4C96 /* AppDelegate.swift */; };
-		F2DC5B302507465A00DC4C96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC5B2F2507465A00DC4C96 /* SceneDelegate.swift */; };
 		F2DC5B322507465A00DC4C96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DC5B312507465A00DC4C96 /* ViewController.swift */; };
 		F2DC5B352507465A00DC4C96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2DC5B332507465A00DC4C96 /* Main.storyboard */; };
 		F2DC5B372507465C00DC4C96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2DC5B362507465C00DC4C96 /* Assets.xcassets */; };
@@ -16,9 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		504C6A52C99522FFC2EED655 /* Pods_DCM_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCM_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A49CD81F4078E5E37ABE7C2A /* Pods-DCM_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCM_iOS.debug.xcconfig"; path = "Target Support Files/Pods-DCM_iOS/Pods-DCM_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B50C54671641A6B1A0D7142B /* Pods-DCM_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCM_iOS.release.xcconfig"; path = "Target Support Files/Pods-DCM_iOS/Pods-DCM_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		F2C6E9A22507551700D959D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2C6E9A625075ABC00D959D5 /* DCMStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCMStep.swift; sourceTree = "<group>"; };
 		F2DC5B2A2507465A00DC4C96 /* DCM_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCM_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DC5B2D2507465A00DC4C96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2DC5B2F2507465A00DC4C96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F2DC5B312507465A00DC4C96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F2DC5B342507465A00DC4C96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2DC5B362507465C00DC4C96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,17 +37,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E4C29BD585A576183077F4 /* Pods_DCM_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7299CCE8C62DD9B3AE9B1CD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A49CD81F4078E5E37ABE7C2A /* Pods-DCM_iOS.debug.xcconfig */,
+				B50C54671641A6B1A0D7142B /* Pods-DCM_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F2C6E9A4250759B000D959D5 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				F2C6E9A5250759BA00D959D5 /* TabBar */,
+				F2C6E9A625075ABC00D959D5 /* DCMStep.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		F2C6E9A5250759BA00D959D5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F2C6E9A825075B0700D959D5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		F2DC5B212507465A00DC4C96 = {
 			isa = PBXGroup;
 			children = (
 				F2DC5B2C2507465A00DC4C96 /* DCM_iOS */,
 				F2DC5B2B2507465A00DC4C96 /* Products */,
+				7299CCE8C62DD9B3AE9B1CD2 /* Pods */,
+				F8BC1483799613DA10E64772 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +97,10 @@
 		F2DC5B2C2507465A00DC4C96 /* DCM_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				F2C6E9A825075B0700D959D5 /* Modules */,
+				F2C6E9A22507551700D959D5 /* GoogleService-Info.plist */,
 				F2DC5B2D2507465A00DC4C96 /* AppDelegate.swift */,
-				F2DC5B2F2507465A00DC4C96 /* SceneDelegate.swift */,
+				F2C6E9A4250759B000D959D5 /* Flows */,
 				F2DC5B312507465A00DC4C96 /* ViewController.swift */,
 				F2DC5B332507465A00DC4C96 /* Main.storyboard */,
 				F2DC5B362507465C00DC4C96 /* Assets.xcassets */,
@@ -67,6 +110,14 @@
 			path = DCM_iOS;
 			sourceTree = "<group>";
 		};
+		F8BC1483799613DA10E64772 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				504C6A52C99522FFC2EED655 /* Pods_DCM_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2DC5B3E2507465C00DC4C96 /* Build configuration list for PBXNativeTarget "DCM_iOS" */;
 			buildPhases = (
+				11EA0FF3F3DB361265D90E22 /* [CP] Check Pods Manifest.lock */,
 				F2DC5B262507465A00DC4C96 /* Sources */,
 				F2DC5B272507465A00DC4C96 /* Frameworks */,
 				F2DC5B282507465A00DC4C96 /* Resources */,
+				906964122486F05B8745CC44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2DC5B3A2507465C00DC4C96 /* LaunchScreen.storyboard in Resources */,
+				F2C6E9A32507551700D959D5 /* GoogleService-Info.plist in Resources */,
 				F2DC5B372507465C00DC4C96 /* Assets.xcassets in Resources */,
 				F2DC5B352507465A00DC4C96 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +187,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11EA0FF3F3DB361265D90E22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DCM_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		906964122486F05B8745CC44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCM_iOS/Pods-DCM_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DCM_iOS/Pods-DCM_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DCM_iOS/Pods-DCM_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2DC5B262507465A00DC4C96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F2DC5B322507465A00DC4C96 /* ViewController.swift in Sources */,
+				F2C6E9A725075ABC00D959D5 /* DCMStep.swift in Sources */,
 				F2DC5B2E2507465A00DC4C96 /* AppDelegate.swift in Sources */,
-				F2DC5B302507465A00DC4C96 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +378,7 @@
 		};
 		F2DC5B3F2507465C00DC4C96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A49CD81F4078E5E37ABE7C2A /* Pods-DCM_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +397,7 @@
 		};
 		F2DC5B402507465C00DC4C96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B50C54671641A6B1A0D7142B /* Pods-DCM_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
