@@ -1,6 +1,5 @@
 package kr.hs.dgsw.juyeop.dcm_android.di
 
-import com.camerakit.CameraKit
 import kr.hs.dgsw.juyeop.dcm_android.viewmodel.activity.*
 import kr.hs.dgsw.juyeop.dcm_android.viewmodel.fragment.AccountViewmodel
 import kr.hs.dgsw.juyeop.dcm_android.viewmodel.fragment.CurrentViewModel
@@ -15,6 +14,7 @@ val viewModelModule = module {
     viewModel { DetailViewModel(get()) }
     viewModel { AddViewModel() }
     viewModel { CameraKitViewModel() }
+    viewModel { ModifyViewModel() }
 
     viewModel { HomeViewModel() }
     viewModel { CurrentViewModel() }

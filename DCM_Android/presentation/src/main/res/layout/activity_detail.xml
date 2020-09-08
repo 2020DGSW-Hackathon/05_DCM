@@ -74,14 +74,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:text="@={viewModel.name}"
-                tools:text="DELL 모니터" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="22sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:text="@={viewModel.name}"
+                    tools:text="DELL 모니터" />
+
+                <TextView
+                    android:id="@+id/rentUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="@={viewModel.rentUser}"
+                    android:textColor="@android:color/black"
+                    tools:text="강민석" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -139,6 +156,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:onClick="@{() -> viewModel.modify()}"
                 android:background="@color/mainColor"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"

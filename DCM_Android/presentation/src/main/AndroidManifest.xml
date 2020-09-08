@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.CameraKitActivity"></activity>
+        <activity android:name=".view.activity.ModifyActivity"></activity>
+        <activity android:name=".view.activity.CameraKitActivity" />
         <activity android:name=".view.activity.AddActivity" />
         <activity android:name=".view.activity.DetailActivity" />
         <activity android:name=".view.activity.MainActivity" />

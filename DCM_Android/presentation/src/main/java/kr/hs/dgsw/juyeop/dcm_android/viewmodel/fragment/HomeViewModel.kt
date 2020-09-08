@@ -5,6 +5,8 @@ import kr.hs.dgsw.juyeop.dcm_android.base.viewmodel.BaseViewModel
 import kr.hs.dgsw.juyeop.dcm_android.widget.SingleLiveEvent
 import kr.hs.dgsw.juyeop.dcm_android.widget.recyclerview.adapter.ProductAdapter
 import kr.hs.dgsw.juyeop.domain.ProductModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeViewModel : BaseViewModel() {
 
@@ -39,6 +41,7 @@ class HomeViewModel : BaseViewModel() {
                                 document["rentUser"].toString(),
                                 document["createAt"].toString()))
                     }
+                    productList.reverse()
                     productAdapter.setList(productList)
                     productAdapter.notifyDataSetChanged()
                 }
@@ -66,6 +69,7 @@ class HomeViewModel : BaseViewModel() {
                             )
                         }
                     }
+                    productList.reverse()
                     productAdapter.setList(productList)
                     productAdapter.notifyDataSetChanged()
                 }
@@ -94,6 +98,7 @@ class HomeViewModel : BaseViewModel() {
                             )
                         }
                     }
+                    productList.reverse()
                     productAdapter.setList(productList)
                     productAdapter.notifyDataSetChanged()
                 }
@@ -121,6 +126,7 @@ class HomeViewModel : BaseViewModel() {
                             )
                         }
                     }
+                    productList.reverse()
                     productAdapter.setList(productList)
                     productAdapter.notifyDataSetChanged()
                 }

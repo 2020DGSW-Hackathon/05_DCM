@@ -33,7 +33,6 @@ class AddViewModel : BaseViewModel() {
     fun cameraEvent() {
         onCameraEvent.call()
     }
-
     fun backEvent() {
         onBackEvent.call()
     }

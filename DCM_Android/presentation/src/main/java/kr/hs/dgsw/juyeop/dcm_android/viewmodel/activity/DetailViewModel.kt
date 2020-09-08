@@ -18,10 +18,12 @@ class DetailViewModel(
     val rentAble = MutableLiveData<String>()
     val name = MutableLiveData<String>()
     val content = MutableLiveData<String>()
+    val rentUser = MutableLiveData<String>()
     val onFailureData = MutableLiveData<Exception>()
 
     val onBackEvent = SingleLiveEvent<Unit>()
     val onSuccessEvent = SingleLiveEvent<Unit>()
+    val onModifyEvent = SingleLiveEvent<Unit>()
 
     val firebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -38,6 +40,22 @@ class DetailViewModel(
 
     fun backEvent() {
         onBackEvent.call()
+    }
+    fun modify() {
+        onModifyEvent.call()
+    }
+
+    fun findRentUser() {
+        firebaseFirestore.collection("student").document(productModel.rentUser)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    rentUser.value = task.result?.get("name").toString()
+                }
+            }
+            .addOnFailureListener {
+                onFailureData.value = it
+            }
     }
 
     fun accept() {
