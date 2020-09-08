@@ -8,8 +8,10 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 import kr.hs.dgsw.juyeop.dcm_android.base.view.BaseFragment
 import kr.hs.dgsw.juyeop.dcm_android.databinding.FragmentHomeBinding
+import kr.hs.dgsw.juyeop.dcm_android.view.activity.AddActivity
 import kr.hs.dgsw.juyeop.dcm_android.view.activity.DetailActivity
 import kr.hs.dgsw.juyeop.dcm_android.viewmodel.fragment.HomeViewModel
+import kr.hs.dgsw.juyeop.dcm_android.widget.extension.startActivityNoFinish
 import kr.hs.dgsw.juyeop.dcm_android.widget.extension.startActivityWithExtraNoFinish
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -29,7 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 startActivityWithExtraNoFinish(Intent(context!!.applicationContext, DetailActivity::class.java).putExtra("productModel", it))
             })
             onAddEvent.observe(this@HomeFragment, Observer {
-                // 추가 화면으로 이동
+                startActivityNoFinish(context!!.applicationContext, AddActivity::class.java)
             })
         }
     }
