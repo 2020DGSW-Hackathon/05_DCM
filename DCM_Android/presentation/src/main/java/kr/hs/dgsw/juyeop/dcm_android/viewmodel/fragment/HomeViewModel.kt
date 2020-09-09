@@ -104,32 +104,4 @@ class HomeViewModel : BaseViewModel() {
                 }
             }
     }
-
-    // 대기 중 [rentAble == 2]
-    fun waitList() {
-        productList.clear()
-        firebaseFirestore.collection("product")
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        if (Integer.parseInt(document["rentAble"].toString()) == 2) {
-                            productList.add(
-                                ProductModel(
-                                    document["name"].toString(),
-                                    document["imageUrl"].toString(),
-                                    document["content"].toString(),
-                                    Integer.parseInt(document["rentAble"].toString()),
-                                    document["rentUser"].toString(),
-                                    document["createAt"].toString()
-                                )
-                            )
-                        }
-                    }
-                    productList.reverse()
-                    productAdapter.setList(productList)
-                    productAdapter.notifyDataSetChanged()
-                }
-            }
-    }
 }

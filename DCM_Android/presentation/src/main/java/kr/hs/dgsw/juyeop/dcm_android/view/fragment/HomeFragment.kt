@@ -43,7 +43,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     0 -> mViewModel.entireList()
                     1 -> mViewModel.rentableList()
                     2 -> mViewModel.lendingList()
-                    3 -> mViewModel.waitList()
                 }
             }
             override fun onTabUnselected(p0: TabLayout.Tab?) {}
