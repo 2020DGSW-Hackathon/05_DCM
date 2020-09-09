@@ -39,5 +39,7 @@ target 'DCM_iOS' do
   pod 'CryptoSwift'
   pod 'Reusable'
   pod 'Kingfisher'
+  pod 'RxViewController'
+  pod 'RxDataSources'
 
 end
