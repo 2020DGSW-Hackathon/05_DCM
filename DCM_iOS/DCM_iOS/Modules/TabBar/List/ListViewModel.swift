@@ -29,7 +29,7 @@ class ListViewModel: BaseViewModel {
         
         input.trigger
             .subscribe(onNext: { [weak self] in
-                //                self?.productRequest(index: 0)
+                self?.productRequest(index: 0)
             }).disposed(by: disposeBag)
         
         input.selection

@@ -51,13 +51,13 @@ class ListViewController: BaseViewController, StoryboardSceneBased {
             switch element.rentAble {
             case 0:
                 cell.productState.textColor = UIColor(red: 0.78, green: 0.00, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "대기 중"
+                cell.productState.text = "대여 중"
             case 1:
                 cell.productState.textColor = UIColor(red: 0.11, green: 0.54, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "승인 됨"
+                cell.productState.text = "대여 가능"
             case 2:
                 cell.productState.textColor = UIColor(red: 0.89, green: 0.64, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "거절됨"
+                cell.productState.text = "대기 중"
             default:
                 cell.productState.text = "Error!"
             }
