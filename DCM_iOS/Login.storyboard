@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,6 +31,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Van-ha-Nie">
                                                         <rect key="frame" x="0.0" y="0.0" width="312" height="45"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="AhN-Qa-F35"/>
                                                         </constraints>
@@ -38,6 +40,7 @@
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PW" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uwr-dr-tpg">
                                                         <rect key="frame" x="0.0" y="57" width="312" height="45"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="FfG-qD-9O1"/>
                                                         </constraints>
@@ -56,7 +59,7 @@
                                                         </constraints>
                                                         <state key="normal" title="로그인" backgroundImage="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-Nt-bCj">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-Nt-bCj">
                                                         <rect key="frame" x="0.0" y="51" width="312" height="30"/>
                                                         <state key="normal" title="회원이 아니신가요?">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,7 +76,8 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Tyv-rv-wjI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i97-Yy-88K" firstAttribute="leading" secondItem="dwx-RY-AJa" secondAttribute="leading" id="5O1-jh-JuG"/>
                             <constraint firstItem="hFV-h7-CbP" firstAttribute="top" secondItem="Tyv-rv-wjI" secondAttribute="top" id="9xz-ct-Iem"/>
@@ -84,7 +88,6 @@
                             <constraint firstItem="i97-Yy-88K" firstAttribute="top" secondItem="dwx-RY-AJa" secondAttribute="top" id="a4h-AI-oPL"/>
                             <constraint firstItem="Tyv-rv-wjI" firstAttribute="trailing" secondItem="hFV-h7-CbP" secondAttribute="trailing" id="dqL-TJ-Kbf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Tyv-rv-wjI"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Van-ha-Nie" id="U5R-1I-a51"/>
@@ -101,5 +104,8 @@
     <resources>
         <image name="Background" width="375" height="812"/>
         <image name="Button" width="269" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
