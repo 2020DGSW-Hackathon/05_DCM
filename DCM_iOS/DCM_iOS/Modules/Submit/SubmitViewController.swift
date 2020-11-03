@@ -70,6 +70,7 @@ extension SubmitViewController {
         )
 
         imageView.rx.tapGesture()
+            .when(.recognized)
             .flatMapLatest { _ in Observable.create(imagePicker) }
             .compactMap { $0[.originalImage] as? UIImage }
             .bind { image in

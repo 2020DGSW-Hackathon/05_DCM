@@ -9,7 +9,6 @@
 import RxFlow
 
 enum DCMStep: Step {
-    
     case tabBarIsRequired
     case introIsRequired
     
@@ -26,7 +25,4 @@ enum DCMStep: Step {
     case popToRoot
     
     case submitIsRequired
-    
-    
-    
 }

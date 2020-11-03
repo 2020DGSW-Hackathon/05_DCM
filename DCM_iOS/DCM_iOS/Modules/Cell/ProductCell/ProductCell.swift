@@ -1,18 +1,18 @@
 //
-//  ProductDetailTableViewCell.swift
+//  ProductCell.swift
 //  DCM_iOS
 //
-//  Created by 강민석 on 2020/09/09.
+//  Created by 강민석 on 2020/11/03.
 //  Copyright © 2020 MinseokKang. All rights reserved.
 //
 
 import UIKit
 
-class ProductDetailTableViewCell: UITableViewCell {
+class ProductCell: UITableViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var stateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,6 @@ class ProductDetailTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-
+    
 }

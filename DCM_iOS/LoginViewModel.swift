@@ -33,9 +33,7 @@ extension LoginViewModel {
         // MARK: - Button Trigger
         input.signInTrigger
             .drive(onNext: { [weak self] in
-                
                 self?.loginRequest()
-                
             }).disposed(by: disposeBag)
         
         let loginButtonEnabled = BehaviorRelay.combineLatest(email, password, self.loading.asObservable()) {
@@ -50,10 +48,13 @@ extension LoginViewModel {
     func loginRequest() {
         self.loading.accept(true)
         Auth.auth().signIn(withEmail: self.email.value, password: password.value) { (user, error) in
-            if user != nil {
-                user?.user.email
-                user?.user.displayName
-                KeychainManager.setToken(token: user!.user.uid)
+            if let user = user {
+                
+                // 사용자 정보 저장
+                user.user.email
+                user.user.displayName
+                
+                KeychainManager.setToken(token: user.user.uid)
                 self.loading.accept(false)
                 loggedIn.accept(true)
             } else {

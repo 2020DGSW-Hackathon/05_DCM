@@ -15,4 +15,6 @@ struct ProductModel: Codable {
     let rentAble: Int
     let rentUser: String
     let createAt: String
+    
+    var isSubmit: Bool = false
 }

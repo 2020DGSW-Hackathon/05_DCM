@@ -1,8 +1,8 @@
 //
-//  HomeViewModel.swift
+//  ListViewModel.swift
 //  DCM_iOS
 //
-//  Created by 강민석 on 2020/09/08.
+//  Created by 강민석 on 2020/09/09.
 //  Copyright © 2020 MinseokKang. All rights reserved.
 //
 
@@ -10,52 +10,54 @@ import RxSwift
 import RxCocoa
 import FirebaseFirestore
 
-class HomeViewModel: BaseViewModel {
+class ListViewModel: BaseViewModel {
     
     struct Input {
-        let trigger: Observable<Void>
-        let selection: Driver<ProductModel>
+        let selection: Driver<MyListSectionItem>
         let segmented: Driver<Int>
+        let submitButton: Driver<Void>
     }
     
     struct Output {
-        let items: BehaviorRelay<[ProductModel]>
+        let items: BehaviorRelay<[MyListSection]>
     }
     
-    let elements = BehaviorRelay<[ProductModel]>(value: [])
+    let elements = BehaviorRelay<[MyListSection]>(value: [])
     
     func transform(input: Input) -> Output {
-        
-        input.trigger
-            .subscribe(onNext: { [weak self] in
-//                self?.productRequest(index: -1)
-            }).disposed(by: disposeBag)
-        
         input.selection
             .drive(onNext: { item in
-                self.steps.accept(DCMStep.productIsRequired(product: item))
+                switch item {
+                case .rentItem(let model):
+                    self.steps.accept(DCMStep.productIsRequired(product: model))
+                case .submitItem(var model):
+                    model.isSubmit = true
+                    self.steps.accept(DCMStep.productIsRequired(product: model))
+                }
             }).disposed(by: disposeBag)
         
         input.segmented
             .drive(onNext: { [weak self] index in
-                self?.productRequest(index: index - 1)
+                print(index)
+                self?.productRequest(index: index)
+            }).disposed(by: disposeBag)
+        
+        input.submitButton
+            .drive(onNext: { [weak self] in
+                self?.steps.accept(DCMStep.submitIsRequired)
             }).disposed(by: disposeBag)
         
         return Output(items: elements)
     }
     
     func productRequest(index: Int) {
-        
-        print(index)
-        
         let db = Firestore.firestore()
         
         self.loading.accept(true)
         
-        let productRef = db.collection("product")
-        
-        if index == -1 {
-            productRef.whereField("rentAble", isGreaterThan: index)
+        if index == 0 {
+            db.collection("product")
+                .whereField("rentUser", isEqualTo: KeychainManager.getToken())
                 .addSnapshotListener { (querySnapShot, error) in
                     guard let documents = querySnapShot?.documents else {
                         print("No documents")
@@ -80,10 +82,17 @@ class HomeViewModel: BaseViewModel {
                                             createAt: createAt)
                     }
                     self.loading.accept(false)
-                    self.elements.accept(product)
-            }
+                    
+                    var items: [MyListSectionItem] = []
+                    product.forEach { (model) in
+                        items.append(MyListSectionItem.rentItem(model: model))
+                    }
+                    self.elements.accept([MyListSection.list(title: "", items: items)])
+                }
         } else {
-            productRef.whereField("rentAble", isEqualTo: index)
+            db.collection("submit")
+                .whereField("submitUser", isEqualTo: KeychainManager.getToken())
+                .whereField("submitAble", isEqualTo: 0)
                 .addSnapshotListener { (querySnapShot, error) in
                     guard let documents = querySnapShot?.documents else {
                         print("No documents")
@@ -96,20 +105,25 @@ class HomeViewModel: BaseViewModel {
                         let name = data["name"] as? String ?? ""
                         let imageUrl = data["imageUrl"] as? String ?? ""
                         let content = data["content"] as? String ?? ""
-                        let rentAble = data["rentAble"] as? Int ?? 0
-                        let rentUser = data["rentUser"] as? String ?? ""
+                        let submitAble = data["submitAble"] as? Int ?? 0
+                        let submitUser = data["submitUser"] as? String ?? ""
                         let createAt = data["createAt"] as? String ?? ""
                         
                         return ProductModel(name: name,
                                             imageUrl: imageUrl,
                                             content: content,
-                                            rentAble: rentAble,
-                                            rentUser: rentUser,
+                                            rentAble: submitAble,
+                                            rentUser: submitUser,
                                             createAt: createAt)
                     }
                     self.loading.accept(false)
-                    self.elements.accept(product)
-            }
+                    
+                    var items: [MyListSectionItem] = []
+                    product.forEach { (model) in
+                        items.append(MyListSectionItem.submitItem(model: model))
+                    }
+                    self.elements.accept([MyListSection.list(title: "", items: items)])
+                }
         }
     }
 }

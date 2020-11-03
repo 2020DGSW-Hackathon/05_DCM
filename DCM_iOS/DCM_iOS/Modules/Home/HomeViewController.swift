@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         configureSegmentedControl()
     }
@@ -37,29 +38,27 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
         
         guard let viewModel = self.viewModel as? HomeViewModel else { fatalError("ViewModel Casting Falid!") }
         
-        let refresh = self.rx.viewWillAppear.map { _ in }
-        let input = HomeViewModel.Input(trigger: refresh,
-                                        selection: self.tableView.rx.modelSelected(ProductModel.self).asDriver(),
+        let input = HomeViewModel.Input(selection: self.tableView.rx.modelSelected(ProductModel.self).asDriver(),
                                         segmented: self.topSegmented.rx.selectedSegmentIndex.asDriver())
         let output = viewModel.transform(input: input)
         
-        output.items.bind(to: tableView.rx.items(cellIdentifier: "HomeProductCell", cellType: HomeProductCell.self)) { (index: Int, element: ProductModel, cell: HomeProductCell) in
+        output.items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell", cellType: ProductCell.self)) { (index: Int, element: ProductModel, cell: ProductCell) in
             let url = URL(string: element.imageUrl)
-            cell.productImage.kf.setImage(with: url)
+            cell.productImageView.kf.setImage(with: url)
             cell.nameLabel.text = element.name
             
             switch element.rentAble {
             case 0:
-                cell.productState.textColor = UIColor(red: 0.78, green: 0.00, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "대여 중"
+                cell.stateLabel.textColor = UIColor(red: 0.78, green: 0.00, blue: 0.00, alpha: 1.00)
+                cell.stateLabel.text = "대여 중"
             case 1:
-                cell.productState.textColor = UIColor(red: 0.11, green: 0.54, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "대여 가능"
+                cell.stateLabel.textColor = UIColor(red: 0.11, green: 0.54, blue: 0.00, alpha: 1.00)
+                cell.stateLabel.text = "대여 가능"
             case 2:
-                cell.productState.textColor = UIColor(red: 0.89, green: 0.64, blue: 0.00, alpha: 1.00)
-                cell.productState.text = "승인 대기 중"
+                cell.stateLabel.textColor = UIColor(red: 0.89, green: 0.64, blue: 0.00, alpha: 1.00)
+                cell.stateLabel.text = "승인 대기 중"
             default:
-                cell.productState.text = "Error!"
+                cell.stateLabel.text = "Error!"
             }
         }.disposed(by: disposeBag)
     }
@@ -68,5 +67,9 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -50,7 +50,4 @@ class BaseViewController: UIViewController, ViewModelBased, NVActivityIndicatorV
             SwiftMessages.show(view: errorView)
         }).disposed(by: disposeBag)
     }
-    
-    
 }
-
