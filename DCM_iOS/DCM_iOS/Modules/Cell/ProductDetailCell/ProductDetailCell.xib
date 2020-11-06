@@ -41,7 +41,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAA-pQ-XND">
-                        <rect key="frame" x="0.0" y="314" width="414" height="0.5"/>
+                        <rect key="frame" x="15" y="314" width="384" height="0.5"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="ANq-E2-Odr"/>
@@ -57,11 +57,11 @@
                     <constraint firstItem="gAA-pQ-XND" firstAttribute="top" secondItem="A7h-E6-ncE" secondAttribute="bottom" constant="20" id="cFC-pk-QyK"/>
                     <constraint firstItem="2fI-Bf-xff" firstAttribute="top" secondItem="gAA-pQ-XND" secondAttribute="bottom" constant="20" id="diG-De-lbD"/>
                     <constraint firstItem="7Bh-Du-YWp" firstAttribute="top" secondItem="luw-mv-cNE" secondAttribute="top" id="htX-OZ-soQ"/>
-                    <constraint firstItem="gAA-pQ-XND" firstAttribute="leading" secondItem="luw-mv-cNE" secondAttribute="leading" id="mnj-tw-JIJ"/>
+                    <constraint firstItem="gAA-pQ-XND" firstAttribute="leading" secondItem="luw-mv-cNE" secondAttribute="leading" constant="15" id="mnj-tw-JIJ"/>
                     <constraint firstItem="2fI-Bf-xff" firstAttribute="leading" secondItem="luw-mv-cNE" secondAttribute="leading" constant="13" id="sPF-Qu-BKs"/>
                     <constraint firstAttribute="bottom" secondItem="2fI-Bf-xff" secondAttribute="bottom" constant="10" id="v1D-Ip-M5a"/>
                     <constraint firstAttribute="trailing" secondItem="A7h-E6-ncE" secondAttribute="trailing" constant="18" id="vp1-l6-GW0"/>
-                    <constraint firstAttribute="trailing" secondItem="gAA-pQ-XND" secondAttribute="trailing" id="x6W-uh-UI0"/>
+                    <constraint firstAttribute="trailing" secondItem="gAA-pQ-XND" secondAttribute="trailing" constant="15" id="x6W-uh-UI0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
